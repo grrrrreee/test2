@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css'; import Main from "./container/Main"; 
 import tx from "./container/tx"; 
 import Viewer from "./container/Viewer"; 
+import Dropzone from "./container/Dropzone";
 
 class App extends Component { 
 
@@ -14,6 +15,7 @@ class App extends Component {
         <Route exact path="/" component={Main} /> 
         <Route path="/tx/" component={tx} /> 
         <Route path="/viewer/" component={Viewer} /> 
+        <Route path="/drag/" component={Dropzone} /> 
         <nav>
           <ul>
             <li>
@@ -30,8 +32,15 @@ class App extends Component {
               <Link to="/"> Home </Link>
             </li>
           </ul>
+          <ul>
+            <li>
+              <Link to="/drag"> Drag and Drop </Link>
+            </li>
+          </ul>
         </nav>
-
+        <div className = "Card">
+          <Dropzone onFilesAdded = {console.log}/>
+          </div>
       </div>
     </Router> 
     
